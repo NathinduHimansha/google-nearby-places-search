@@ -38,7 +38,7 @@ public class PlacesRetrievingServiceImpl implements PlacesRetrievingService {
             log.info("PlacesRetrievingServiceImpl - getNearbyPlaces called()");
 
             String url = String.format("%s/json?location=%s,%s&radius=%s&type=%s&key=%s",
-                    nearbyPlacesApi, longitude, latitude, radius, type, googleCloudServicesApiKey);
+                    nearbyPlacesApi, longitude, latitude, radius, type.toLowerCase(), googleCloudServicesApiKey);
             List<NearByPlacesDto> nearByPlacesDto = convertResponseIntoNearByPlacesDto(
                     restTemplate.getForObject(url, PlaceNearBySearchResponse.class));
 
